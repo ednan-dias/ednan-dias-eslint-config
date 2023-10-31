@@ -1,6 +1,6 @@
 {
   "name": "@ednan-dias/eslint-config",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "Eslint config for React created by me.",
   "main": "index.js",
   "license": "MIT",
