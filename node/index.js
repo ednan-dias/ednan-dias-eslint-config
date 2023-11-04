@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -22,13 +23,51 @@ module.exports = {
         argsIgnorePattern: '_',
       },
     ],
+    'no-empty': [
+      'warn',
+      {
+        allowEmptyCatch: true,
+      },
+    ],
+    'import/order': [
+      'warn',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        'newlines-between': 'always',
+      },
+    ],
+    '@typescript-eslint/naming-convention': [
+      'warn',
+      {
+        selector: 'interface',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^I[A-Z]',
+          match: true,
+        },
+      },
+    ],
     'prettier/prettier': [
       'warn',
       {
-        trailingComma: 'es5',
+        printWidth: 80,
         tabWidth: 2,
         semi: true,
         singleQuote: true,
+        trailingComma: 'es5',
+        bracketSpacing: true,
+        endOfLine: 'lf',
       },
     ],
   },
